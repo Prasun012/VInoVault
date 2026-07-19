@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom"
 import { useDrinkDetails } from "../hooks/UseDrinkDetails"
+import { useCart } from "../context/CartContext"
 
 export function DrinkDetail() {
 
     const {id}=useParams()
-
+    const {addToCart}=useCart()
+    
     const {
         data: drink,
         isLoading,
@@ -30,7 +32,6 @@ export function DrinkDetail() {
             });
         }
     }
-
     return (
     <div className="max-w-5xl mx-auto p-8">
 
@@ -59,7 +60,9 @@ export function DrinkDetail() {
             Glass: {drink.strGlass}
           </p>
 
-          <button className="mt-6 bg-black text-white px-6 py-2 rounded-xl">
+          <button 
+          onClick={() => addToCart(drink)}
+          className="mt-6 bg-black text-white px-6 py-2 rounded-xl">
             Add to Cart
           </button>
 

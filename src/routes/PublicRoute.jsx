@@ -1,10 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-export function PublicRoute(){
-    localStorage.setItem("isAgeVerified", "true");
+export function PublicRoute() {
+  const isAgeVerified = localStorage.getItem("isAgeVerified") === "true";
 
-    const isAgeVerified = localStorage.getItem('isAgeVerified');
-
-    return isAgeVerified? <Outlet/> :<Navigate to='/verify' replace />
-    
+  return isAgeVerified ? <Outlet /> : <Navigate to="/verify" replace />;
 }
