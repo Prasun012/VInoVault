@@ -5,9 +5,10 @@ import { ProductGrid } from "../components/catalog/ProductGrid";
 import { UseCatalogSearch } from "../hooks/UseCatalogSearch";
 import { SearchBar } from "../components/catalog/SearchBar";
 
+
 export function Home()
 {
-    const [search,setSearch]=useState("")
+    const [search,setSearch]=useState("p")
     const [filter,setFilter]=useState("all")
 
    const {
@@ -15,7 +16,7 @@ export function Home()
     isLoading,
     isError,
     error
-   }=UseCatalogSearch("margarita")
+   }=UseCatalogSearch(search)
 
    if(isLoading)
     return<h1> Loading...</h1>
@@ -50,8 +51,7 @@ export function Home()
             <Hero/>
             
             <SearchBar
-            search={search}
-            setSearch={setSearch}
+            onSearch={setSearch}
             />
 
             <Filter

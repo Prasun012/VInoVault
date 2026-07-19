@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Verify } from "../core/verify";
+import { Verify } from "../core/Verify";
 import { PublicRoute } from "./PublicRoute";
 import { AppLayout } from "../components/layout/AppLayout";
 import { Home } from "../core/Home";
@@ -16,7 +16,7 @@ export function AppRoute(){
     <Routes>
 
       
-      <Route path="/verify" element={< Verify/>} />
+      <Route path="/verify" element={<Verify/>} />
 
 
       <Route element={<PublicRoute/>}>

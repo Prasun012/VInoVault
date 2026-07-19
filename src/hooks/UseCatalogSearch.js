@@ -7,6 +7,7 @@ export function UseCatalogSearch(search =""){
         {
             queryKey: ["drinks",search],
             queryFn: () => searchDrink(search),
+            enabled: search.trim() !=="",
         }
     )
 }

@@ -30,7 +30,7 @@ export function Navbar(){
                         <button
                         onClick={() => setShowCart((prev) => !prev)}
                         className="bg-black text-white px-4 py-2 rounded-md">
-                            Cart {totalItems}
+                            Cart ({totalItems})
                         </button>
                         {/* <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                           3

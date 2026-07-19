@@ -1,6 +1,37 @@
-export function Login(){
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-    return(
-        <h1> Login</h1>
-    )
+function Login() {
+  const [username, setUsername] = useState("");
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    login({
+      username,
+    });
+
+    navigate("/");
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+
+      <button type="submit">
+        Login
+      </button>
+    </form>
+  );
 }
+
+export default Login;
