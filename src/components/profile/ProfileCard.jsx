@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 
 function ProfileCard() {
   const { user } = useAuth();
+
     console.log(user);
   if (!user) {
     return (
@@ -12,6 +13,9 @@ function ProfileCard() {
     );
   }
 
+
+
+
   return (
     <div className="bg-white rounded-xl shadow p-6">
       <div className="flex items-center gap-6">
@@ -20,6 +24,8 @@ function ProfileCard() {
           alt={user.firstName}
           className="w-24 h-24 rounded-full border object-cover"
         />
+          
+          
 
         <div>
           <h2 className="text-2xl font-bold">
@@ -31,6 +37,7 @@ function ProfileCard() {
           <p className="text-gray-500">@{user.username}</p>
         </div>
       </div>
+      
     </div>
   );
 }

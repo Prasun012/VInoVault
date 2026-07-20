@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useDrinkDetails } from "../hooks/UseDrinkDetails"
 import { useCart } from "../context/CartContext"
 
@@ -34,6 +34,14 @@ export function DrinkDetail() {
     }
     return (
     <div className="max-w-5xl mx-auto p-8">
+      <div className="mb-4">
+        <Link
+          to="/"
+          className="inline-flex items-center rounded-md border border-slate-300 px-3 py-2 text-sm font-medium bg-black text-white text-slate-700 hover:bg-slate-100"
+        >
+          ← Back to Home
+        </Link>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8">
 
