@@ -13,20 +13,18 @@ function CartDrawer() {
         Shopping Cart
       </h2>
 
-      {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <>
+      {cart.length > 0 && (
+        <div className="space-y-3">
           {cart.map((item) => (
             <CartItem
               key={item.idDrink}
               item={item}
             />
           ))}
-
-          <OrderSummary />
-        </>
+        </div>
       )}
+
+      <OrderSummary />
 
     </div>
   );

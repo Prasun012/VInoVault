@@ -25,9 +25,10 @@ function Login() {
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        className="border"
       />
 
-      <button type="submit">
+      <button type="submit" className="bg-black text-white rounded-xl px-5">
         Login
       </button>
     </form>

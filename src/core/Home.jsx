@@ -3,64 +3,41 @@ import { Filter } from "../components/catalog/Filter";
 import { Hero } from "../components/catalog/Hero";
 import { ProductGrid } from "../components/catalog/ProductGrid";
 import { UseCatalogSearch } from "../hooks/UseCatalogSearch";
-import { SearchBar } from "../components/catalog/SearchBar";
 
+export function Home() {
+    const [search, setSearch] = useState("p");
+    const [filter, setFilter] = useState("all");
 
-export function Home()
-{
-    const [search,setSearch]=useState("p")
-    const [filter,setFilter]=useState("all")
+    const {
+        data: drinks,
+        isLoading,
+        isError,
+        error,
+    } = UseCatalogSearch(search);
 
-   const {
-    data:drinks,
-    isLoading,
-    isError,
-    error
-   }=UseCatalogSearch(search)
+    if (isLoading) return <h1>Loading...</h1>;
+    if (isError) return <h2>{error.message}</h2>;
+    if (error) return <h1>Something Went Wrong</h1>;
 
-   if(isLoading)
-    return<h1> Loading...</h1>
- 
-   if(isError)
-    return <h2>{error.message}</h2>
+    let filterDrinks = drinks;
 
-   if(error)
-    return<h1>Something Went Wrong</h1>
+    if (filter === "Alcholic") {
+        filterDrinks = drinks?.filter((drink) => drink.strAlcoholic === "Alcoholic");
+    }
 
-   console.log(drinks);
+    if (filter === "Non_Alcholic") {
+        filterDrinks = drinks?.filter((drink) => drink.strAlcoholic === "Non alcoholic");
+    }
 
-   let filterDrinks=drinks
-
-   if(filterDrinks==="Alcohoic"){
-    filterDrinks = drinks?.filter(
-        (drinks)=> drinks.strAlcholic==="Alcholic"
-    )
-   }
-
-
-   if(filterDrinks==="Non_Alcohoic"){
-    filterDrinks = drinks?.filter(
-        (drinks)=> drinks.strAlcholic==="Non_Alcholic"
-    )
-   }
-   
-   
-
-    return(
+    return (
         <div className="mx-auto px-6 py-8">
-            <Hero/>
-            
-            <SearchBar
-            onSearch={setSearch}
-            />
+            <Hero onSearch={setSearch} />
 
-            <Filter
-            filter={filter}
-            setFilter={setFilter}
-            />
-            <ProductGrid 
-            drink={filterDrinks}
-            />
+            <div className="mt-6">
+                <Filter filter={filter} setFilter={setFilter} />
+            </div>
+
+            <ProductGrid drink={filterDrinks} />
         </div>
-    )
+    );
 }

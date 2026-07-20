@@ -4,11 +4,12 @@ import { PublicRoute } from "./PublicRoute";
 import { AppLayout } from "../components/layout/AppLayout";
 import { Home } from "../core/Home";
 import { DrinkDetail } from "../core/DrinkDetail";
-import { Login } from "../core/login";
+
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Profile } from "../core/Profile";
 import { B2BOrder } from "../core/B2BOrder";
 import { NotFound } from "../core/NotFound";
+import Login from "../core/Login";
 
 export function AppRoute(){
 
@@ -35,7 +36,7 @@ export function AppRoute(){
         </Route>
       </Route>
 
-      {/* 404 */}
+      
       <Route path="*" element={<NotFound/>} />
 
     </Routes>

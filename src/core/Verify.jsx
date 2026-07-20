@@ -1,12 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export function Verify(){
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   function handleVerify() {
     localStorage.setItem("isAgeVerified", "true");
-    navigate("/");
+    navigate(location.state?.from?.pathname || "/");
   }
 
   return (

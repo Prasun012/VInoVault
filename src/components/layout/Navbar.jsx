@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCart } from "../../context/CartContext";
 import CartDrawer from "../cart/CartDrawer";
+import { Link } from "react-router-dom";
 
 export function Navbar(){
 
@@ -22,9 +23,9 @@ export function Navbar(){
                 </div>
                 
                 <div className="flex items-center gap-6">
-                    <a className="text-amber-700 font-medium">Catalog</a>
-                    <a className="text-slate-500">B2B Order</a>
-                    <a className="text-slate-500">Profile</a>
+                    <Link to ="/" className="text-amber-700 font-medium">Catalog</Link>
+                    <Link to="/b2b-orders" className="text-slate-500">B2B Order</Link>
+                    <Link to="/profile" className="text-slate-500">Profile</Link>
                     
                     <div className="relative">
                         <button
@@ -32,9 +33,6 @@ export function Navbar(){
                         className="bg-black text-white px-4 py-2 rounded-md">
                             Cart ({totalItems})
                         </button>
-                        {/* <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                          3
-                        </span> */}
                     </div>
 
                 </div>
