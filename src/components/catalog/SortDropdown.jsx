@@ -7,6 +7,7 @@ export function SortDropdown({ sort, setSort }) {
     >
       <option value="az">A - Z</option>
       <option value="za">Z - A</option>
+      
     </select>
   );
 }
